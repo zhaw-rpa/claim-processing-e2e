@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.inThresholdApproveMiddleManagement="500" this:Main.inThresholdApproveHigherManagement="10000" this:Main.inMailAccount="scep@zhaw.ch" this:Main.inMailAddressMiddleManagement="scep@zhaw.ch" this:Main.inMailAddressHigherManagement="vqsuda@gmail.com" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upaf="clr-namespace:UiPath.Persistence.Activities.FormTask;assembly=UiPath.Persistence.Activities" xmlns:upat="clr-namespace:UiPath.Persistence.Activities.Tasks;assembly=UiPath.Persistence.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.inThresholdApproveMiddleManagement="500" this:Main.inThresholdApproveHigherManagement="10000" this:Main.inMailAccount="scep@zhaw.ch" this:Main.inMailAddressMiddleManagement="scep@zhaw.ch" this:Main.inMailAddressHigherManagement="vqsuda@gmail.com" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ucas="clr-namespace:UiPath.Core.Activities.Storage;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upaf="clr-namespace:UiPath.Persistence.Activities.FormTask;assembly=UiPath.Persistence.Activities" xmlns:upat="clr-namespace:UiPath.Persistence.Activities.Tasks;assembly=UiPath.Persistence.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="inThresholdApproveMiddleManagement" Type="InArgument(x:Double)" />
     <x:Property Name="inThresholdApproveHigherManagement" Type="InArgument(x:Double)" />
@@ -9,10 +9,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1146,1668</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1022,1831</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="38">
+    <scg:List x:TypeArguments="x:String" Capacity="40">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -51,10 +51,12 @@
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.Persistence.Activities.Tasks</x:String>
+      <x:String>UiPath.Core.Activities.Storage</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="46">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -88,7 +90,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MainSequence" sap:VirtualizedContainerService.HintSize="396,1603" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="MainSequence" sap:VirtualizedContainerService.HintSize="396,1766" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="claimAttachmentsPath" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtClaims" />
@@ -105,8 +107,8 @@
         <OutArgument x:TypeArguments="x:String" x:Key="outAttachmentsFolderPath">[claimAttachmentsPath]</OutArgument>
       </ui:InvokeProcess.Arguments>
     </ui:InvokeProcess>
-    <ui:BuildDataTable DataTable="[dtClaims]" DisplayName="Build Data Table dtClaims" sap:VirtualizedContainerService.HintSize="354,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ClaimId&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;CustomerId&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ClaimTypeId&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ClaimDateBegin&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ClaimDateEnd&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ClaimAmountRequested&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ClaimAmountToPay&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ClaimStatus&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ClaimDescription&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;rejection_reasons&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
-    <ParallelForEach x:TypeArguments="x:String" DisplayName="Parallel For Each PDF in Folder of Claims to process" sap:VirtualizedContainerService.HintSize="354,936" sap2010:WorkflowViewState.IdRef="ParallelForEach`1_1" Values="[Directory.GetFiles(claimAttachmentsPath)]">
+    <ui:BuildDataTable DataTable="[dtClaims]" DisplayName="Build Data Table dtClaims" sap:VirtualizedContainerService.HintSize="354,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ClaimId&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;CustomerId&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ClaimTypeId&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ClaimDateBegin&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ClaimDateEnd&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ClaimAmountRequested&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ClaimAmountToPay&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ClaimStatus&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ClaimDescription&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;rejection_reasons&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ParallelForEach x:TypeArguments="x:String" DisplayName="Parallel For Each PDF in Folder of Claims to process" sap:VirtualizedContainerService.HintSize="354,1099" sap2010:WorkflowViewState.IdRef="ParallelForEach`1_1" Values="[Directory.GetFiles(claimAttachmentsPath)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -117,7 +119,7 @@
         <ActivityAction.Argument>
           <DelegateInArgument x:TypeArguments="x:String" Name="claimAttachmentPath" />
         </ActivityAction.Argument>
-        <Sequence DisplayName="PerPdfSequence" sap:VirtualizedContainerService.HintSize="304,788" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="PerPdfSequence" sap:VirtualizedContainerService.HintSize="836,2330" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="claimStatus" />
             <Variable x:TypeArguments="x:String" Name="pdfText" />
@@ -127,13 +129,14 @@
             <Variable x:TypeArguments="x:String" Name="claimDescription" />
             <Variable x:TypeArguments="x:Double" Name="claimAmountToPay" />
             <Variable x:TypeArguments="x:String" Name="rejectionReasons" />
+            <Variable x:TypeArguments="x:String" Name="bucketPath" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="Extract all claim information from the pdf" DisplayName="Extract Information from one PDF" sap:VirtualizedContainerService.HintSize="262,108" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence sap2010:Annotation.AnnotationText="Extract all claim information from the pdf" DisplayName="Extract Information from one PDF" sap:VirtualizedContainerService.HintSize="794,108" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
             </Sequence.Variables>
@@ -182,7 +185,26 @@
               </Assign.Value>
             </Assign>
           </Sequence>
-          <Assign DisplayName="Assign default status" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Sequence sap2010:Annotation.AnnotationText="Uploads the local file to a folder in the Orchestrator Storage Bucket" DisplayName="Upload pdf to Storage Bucket" sap:VirtualizedContainerService.HintSize="376,550" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Set bucketPath of uploaded file" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[bucketPath]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">["\claims\" + Path.GetFileName(claimAttachmentPath)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;path: &quot; + bucketPath]" />
+            <ucas:UploadStorageFile TimeoutMS="{x:Null}" Destination="[bucketPath]" DisplayName="Upload Storage File" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="UploadStorageFile_1" Path="[claimAttachmentPath]" StorageBucketName="DemoBucket" />
+          </Sequence>
+          <Assign DisplayName="Assign default status" sap:VirtualizedContainerService.HintSize="794,60" sap2010:WorkflowViewState.IdRef="Assign_8">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[claimStatus]</OutArgument>
             </Assign.To>
@@ -190,7 +212,7 @@
               <InArgument x:TypeArguments="x:String">to_pay</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Assign default amount to pay" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+          <Assign DisplayName="Assign default amount to pay" sap:VirtualizedContainerService.HintSize="794,60" sap2010:WorkflowViewState.IdRef="Assign_12">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Double">[claimAmountToPay]</OutArgument>
             </Assign.To>
@@ -198,7 +220,7 @@
               <InArgument x:TypeArguments="x:Double">[claimAmountRequested]</InArgument>
             </Assign.Value>
           </Assign>
-          <If sap2010:Annotation.AnnotationText="If amount requested is above the defined treshhold value, let a middle manager approve the claim." Condition="[claimAmountRequested &gt; inThresholdApproveMiddleManagement And claimAmountRequested &lt;= inThresholdApproveHigherManagement]" DisplayName="If Approval by middle Management necessary" sap:VirtualizedContainerService.HintSize="262,123" sap2010:WorkflowViewState.IdRef="If_2">
+          <If sap2010:Annotation.AnnotationText="If amount requested is above the defined treshhold value, let a middle manager approve the claim." Condition="[claimAmountRequested &gt; inThresholdApproveMiddleManagement And claimAmountRequested &lt;= inThresholdApproveHigherManagement]" DisplayName="If Approval by middle Management necessary" sap:VirtualizedContainerService.HintSize="794,123" sap2010:WorkflowViewState.IdRef="If_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -207,12 +229,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap2010:Annotation.AnnotationText="Let a human approve the claim by generating a form task. If approved the human also sets the amount, the insurer will pay." DisplayName="Middle Management Approval Sequence" sap:VirtualizedContainerService.HintSize="376,1043" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence sap2010:Annotation.AnnotationText="Let a human approve the claim by generating a form task. If approved the human also sets the amount, the insurer will pay." DisplayName="Middle Management Approval Sequence" sap:VirtualizedContainerService.HintSize="526,1445" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="approvedOrRejected" />
                   <Variable x:TypeArguments="upaf:FormTaskData" Name="taskObjectUpdated" />
                   <Variable x:TypeArguments="upaf:FormTaskData" Name="taskObjectToOrchestrator" />
                   <Variable x:TypeArguments="upaf:FormTaskData" Name="taskObjectUpdatedFromOrchestrator" />
+                  <Variable x:TypeArguments="upat:StorageUploads" Name="uploadedFiles" />
                 </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -221,21 +244,40 @@
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <upaf:CreateFormTask BucketFolderPath="{x:Null}" BucketName="{x:Null}" ExternalTag="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Create Form Task" FormLayout="%[{&quot;label&quot;:&quot;Claim Description&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;in_claimDescription&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Amount Requested&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;delimiter&quot;:true,&quot;requireDecimal&quot;:false,&quot;key&quot;:&quot;in_claimAmountRequested&quot;,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;decimalLimit&quot;:2},{&quot;label&quot;:&quot;Amount to pay (if not rejected)&quot;,&quot;tableView&quot;:true,&quot;delimiter&quot;:true,&quot;requireDecimal&quot;:false,&quot;key&quot;:&quot;out_claimAmountToPay&quot;,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;decimalLimit&quot;:2},{&quot;label&quot;:&quot;Rejection Reasons (if rejected)&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;out_rejectionReasons&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;mask&quot;:false,&quot;customClass&quot;:&quot;uipath-button-container&quot;,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;table&quot;,&quot;input&quot;:false,&quot;key&quot;:&quot;key&quot;,&quot;label&quot;:&quot;label&quot;,&quot;rows&quot;:[[{&quot;components&quot;:[{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Approve&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;tableView&quot;:true}]},{&quot;components&quot;:[{&quot;label&quot;:&quot;Reject&quot;,&quot;showValidations&quot;:false,&quot;theme&quot;:&quot;danger&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;reject&quot;,&quot;type&quot;:&quot;button&quot;,&quot;input&quot;:true}]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]}]],&quot;numRows&quot;:1,&quot;numCols&quot;:6,&quot;reorder&quot;:false}]" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="334,371" sap2010:WorkflowViewState.IdRef="CreateFormTask_1" TaskCatalog="[&quot;ClaimApprovementTasks&quot;]" TaskOutput="[taskObjectToOrchestrator]" TaskPriority="[TaskPriority.Medium]" TaskTitle="[&quot;Approve Claim &quot; + claimDescription]">
+                <upaf:CreateFormTask BucketFolderPath="{x:Null}" ExternalTag="{x:Null}" TimeoutMs="{x:Null}" BucketName="DemoBucket" DisplayName="Create Form Task" FormLayout="%[{&quot;label&quot;:&quot;Claim Description&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;in_claimDescription&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Amount Requested&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;delimiter&quot;:true,&quot;requireDecimal&quot;:false,&quot;key&quot;:&quot;in_claimAmountRequested&quot;,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;decimalLimit&quot;:2},{&quot;label&quot;:&quot;Amount to pay (if not rejected)&quot;,&quot;tableView&quot;:true,&quot;delimiter&quot;:true,&quot;requireDecimal&quot;:false,&quot;key&quot;:&quot;out_claimAmountToPay&quot;,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;decimalLimit&quot;:2},{&quot;label&quot;:&quot;Rejection Reasons (if rejected)&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;out_rejectionReasons&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;HTML&quot;,&quot;attrs&quot;:[{&quot;attr&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}],&quot;content&quot;:&quot;&lt;embed src={{ data.in_pdf_storage }} width=\&quot;600px\&quot; height=\&quot;500px\&quot;&gt;&lt;/embed&gt;&quot;,&quot;refreshOnChange&quot;:true,&quot;key&quot;:&quot;html&quot;,&quot;type&quot;:&quot;htmlelement&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false},{&quot;label&quot;:&quot;HTML&quot;,&quot;tag&quot;:&quot;div&quot;,&quot;attrs&quot;:[{&quot;attr&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}],&quot;content&quot;:&quot;&lt;a href={{ data.in_pdf_storage }} target=\&quot;_blank\&quot;&gt;{{ data.in_pdf_storage }}: Open file in new window&lt;/a&gt;&quot;,&quot;refreshOnChange&quot;:false,&quot;key&quot;:&quot;html1&quot;,&quot;type&quot;:&quot;htmlelement&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false},{&quot;label&quot;:&quot;Upload&quot;,&quot;tableView&quot;:false,&quot;storage&quot;:&quot;uipathStorageBucketProvider&quot;,&quot;fileTypes&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}],&quot;fileMaxSize&quot;:&quot;100MB&quot;,&quot;key&quot;:&quot;out_uploadedFiles&quot;,&quot;input&quot;:true,&quot;type&quot;:&quot;file&quot;},{&quot;mask&quot;:false,&quot;customClass&quot;:&quot;uipath-button-container&quot;,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;table&quot;,&quot;input&quot;:false,&quot;key&quot;:&quot;key&quot;,&quot;label&quot;:&quot;label&quot;,&quot;rows&quot;:[[{&quot;components&quot;:[{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Approve&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;tableView&quot;:true}]},{&quot;components&quot;:[{&quot;label&quot;:&quot;Reject&quot;,&quot;showValidations&quot;:false,&quot;theme&quot;:&quot;danger&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;reject&quot;,&quot;type&quot;:&quot;button&quot;,&quot;input&quot;:true}]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]}]],&quot;numRows&quot;:1,&quot;numCols&quot;:6,&quot;reorder&quot;:false},{&quot;label&quot;:&quot;in_pdf_storage&quot;,&quot;hidden&quot;:true,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;in_pdf_storage&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true}]" GenerateInputFields="False" sap:VirtualizedContainerService.HintSize="484,371" sap2010:WorkflowViewState.IdRef="CreateFormTask_1" TaskCatalog="[&quot;ClaimApprovementTasks&quot;]" TaskOutput="[taskObjectToOrchestrator]" TaskPriority="[TaskPriority.Medium]" TaskTitle="[&quot;Approve Claim &quot; + claimDescription]">
                   <upaf:CreateFormTask.FormData>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_claimDescription">[claimDescription]</InArgument>
-                    <InArgument x:TypeArguments="x:Double" x:Key="in_claimAmountRequested">[claimAmountRequested]</InArgument>
-                    <OutArgument x:TypeArguments="x:Double" x:Key="out_claimAmountToPay">[claimAmountToPay]</OutArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_rejectionReasons">[rejectionReasons]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_claimDescription">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="claimDescription" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:Double" x:Key="in_claimAmountRequested">
+                      <mva:VisualBasicValue x:TypeArguments="x:Double" ExpressionText="claimAmountRequested" />
+                    </InArgument>
+                    <OutArgument x:TypeArguments="x:Double" x:Key="out_claimAmountToPay">
+                      <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="claimAmountToPay" />
+                    </OutArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_rejectionReasons">
+                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="rejectionReasons" />
+                    </OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_pdf_storage">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="bucketPath" />
+                    </InArgument>
+                    <OutArgument x:TypeArguments="upat:StorageUploads" x:Key="out_uploadedFiles">
+                      <mva:VisualBasicReference x:TypeArguments="upat:StorageUploads" ExpressionText="uploadedFiles" />
+                    </OutArgument>
                   </upaf:CreateFormTask.FormData>
                 </upaf:CreateFormTask>
-                <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Account="[inMailAccount]" Body="[taskObjectToOrchestrator.ActionUrl]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="[&quot;Approve Claim &quot; + claimDescription]" To="[inMailAddressMiddleManagement]">
+                <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Account="[inMailAccount]" Body="[taskObjectToOrchestrator.ActionUrl]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="484,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="[&quot;Approve Claim &quot; + claimDescription]" To="[inMailAddressMiddleManagement]">
                   <ui:SendOutlookMail.Files>
                     <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                   </ui:SendOutlookMail.Files>
                 </ui:SendOutlookMail>
-                <upaf:WaitForFormTaskAndResume StatusMessage="{x:Null}" TimeoutMs="{x:Null}" WaitItemDataObject="{x:Null}" DisplayName="Wait for Form Task and Resume" sap:VirtualizedContainerService.HintSize="334,222" sap2010:WorkflowViewState.IdRef="WaitForFormTaskAndResume_1" TaskAction="[approvedOrRejected]" TaskInput="[taskObjectToOrchestrator]" TaskOutput="[taskObjectUpdatedFromOrchestrator]" />
-                <If Condition="[Not approvedOrRejected.Equals(&quot;submit&quot;)]" DisplayName="If claim not approved" sap:VirtualizedContainerService.HintSize="484,429" sap2010:WorkflowViewState.IdRef="If_1">
+                <upaf:WaitForFormTaskAndResume StatusMessage="{x:Null}" TimeoutMs="{x:Null}" WaitItemDataObject="{x:Null}" DisplayName="Wait for Form Task and Resume" sap:VirtualizedContainerService.HintSize="484,222" sap2010:WorkflowViewState.IdRef="WaitForFormTaskAndResume_1" TaskAction="[approvedOrRejected]" TaskInput="[taskObjectToOrchestrator]" TaskOutput="[taskObjectUpdatedFromOrchestrator]" />
+                <If Condition="[uploadedFiles.Count &gt;= 1]" DisplayName="If an uploaded file exists download it locally" sap:VirtualizedContainerService.HintSize="484,362" sap2010:WorkflowViewState.IdRef="If_5">
+                  <If.Then>
+                    <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[&quot;C:\Users\scep\Desktop\&quot; + uploadedFiles(0).OriginalName]" DisplayName="Download Storage File" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_1" Path="[uploadedFiles(0).FilePath]" StorageBucketName="DemoBucket" />
+                  </If.Then>
+                </If>
+                <If Condition="[Not approvedOrRejected.Equals(&quot;submit&quot;)]" DisplayName="If claim not approved" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -274,7 +316,7 @@
               </Sequence>
             </If.Then>
           </If>
-          <If sap2010:Annotation.AnnotationText="If amount requested is above the defined treshhold value, let a higher manager approve the claim." Condition="[claimAmountRequested &gt; inThresholdApproveHigherManagement]" DisplayName="If Approval by Higher Management necessary" sap:VirtualizedContainerService.HintSize="262,123" sap2010:WorkflowViewState.IdRef="If_4">
+          <If sap2010:Annotation.AnnotationText="If amount requested is above the defined treshhold value, let a higher manager approve the claim." Condition="[claimAmountRequested &gt; inThresholdApproveHigherManagement]" DisplayName="If Approval by Higher Management necessary" sap:VirtualizedContainerService.HintSize="794,1502" sap2010:WorkflowViewState.IdRef="If_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -296,12 +338,20 @@
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <upaf:CreateFormTask BucketFolderPath="{x:Null}" BucketName="{x:Null}" ExternalTag="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Create Form Task" FormLayout="%[{&quot;label&quot;:&quot;Claim Description&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;in_claimDescription&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Amount Requested&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;delimiter&quot;:true,&quot;requireDecimal&quot;:false,&quot;key&quot;:&quot;in_claimAmountRequested&quot;,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;decimalLimit&quot;:2},{&quot;label&quot;:&quot;Amount to pay (if not rejected)&quot;,&quot;tableView&quot;:true,&quot;delimiter&quot;:true,&quot;requireDecimal&quot;:false,&quot;key&quot;:&quot;out_claimAmountToPay&quot;,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;decimalLimit&quot;:2},{&quot;label&quot;:&quot;Rejection Reasons (if rejected)&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;out_rejectionReasons&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;mask&quot;:false,&quot;customClass&quot;:&quot;uipath-button-container&quot;,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;table&quot;,&quot;input&quot;:false,&quot;key&quot;:&quot;key&quot;,&quot;label&quot;:&quot;label&quot;,&quot;rows&quot;:[[{&quot;components&quot;:[{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Approve&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;tableView&quot;:true}]},{&quot;components&quot;:[{&quot;label&quot;:&quot;Reject&quot;,&quot;showValidations&quot;:false,&quot;theme&quot;:&quot;danger&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;reject&quot;,&quot;type&quot;:&quot;button&quot;,&quot;input&quot;:true}]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]}]],&quot;numRows&quot;:1,&quot;numCols&quot;:6,&quot;reorder&quot;:false}]" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="716,371" sap2010:WorkflowViewState.IdRef="CreateFormTask_2" TaskCatalog="[&quot;ClaimApprovementTasks&quot;]" TaskOutput="[taskObjectCreated]" TaskPriority="[TaskPriority.Medium]" TaskTitle="[&quot;Approve Claim &quot; + claimDescription]">
+                <upaf:CreateFormTask BucketFolderPath="{x:Null}" BucketName="{x:Null}" ExternalTag="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Create Form Task" FormLayout="%[{&quot;label&quot;:&quot;Claim Description&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;in_claimDescription&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Amount Requested&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;delimiter&quot;:true,&quot;requireDecimal&quot;:false,&quot;key&quot;:&quot;in_claimAmountRequested&quot;,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;decimalLimit&quot;:2},{&quot;label&quot;:&quot;Amount to pay (if not rejected)&quot;,&quot;tableView&quot;:true,&quot;delimiter&quot;:true,&quot;requireDecimal&quot;:false,&quot;key&quot;:&quot;out_claimAmountToPay&quot;,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;decimalLimit&quot;:2},{&quot;label&quot;:&quot;Rejection Reasons (if rejected)&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;out_rejectionReasons&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;mask&quot;:false,&quot;customClass&quot;:&quot;uipath-button-container&quot;,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;table&quot;,&quot;input&quot;:false,&quot;key&quot;:&quot;key&quot;,&quot;label&quot;:&quot;label&quot;,&quot;rows&quot;:[[{&quot;components&quot;:[{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Approve&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;tableView&quot;:true}]},{&quot;components&quot;:[{&quot;label&quot;:&quot;Reject&quot;,&quot;showValidations&quot;:false,&quot;theme&quot;:&quot;danger&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;reject&quot;,&quot;type&quot;:&quot;button&quot;,&quot;input&quot;:true}]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]}]],&quot;numRows&quot;:1,&quot;numCols&quot;:6,&quot;reorder&quot;:false}]" GenerateInputFields="False" sap:VirtualizedContainerService.HintSize="716,371" sap2010:WorkflowViewState.IdRef="CreateFormTask_2" TaskCatalog="[&quot;ClaimApprovementTasks&quot;]" TaskOutput="[taskObjectCreated]" TaskPriority="[TaskPriority.Medium]" TaskTitle="[&quot;Approve Claim &quot; + claimDescription]">
                   <upaf:CreateFormTask.FormData>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_claimDescription">[claimDescription]</InArgument>
-                    <InArgument x:TypeArguments="x:Double" x:Key="in_claimAmountRequested">[claimAmountRequested]</InArgument>
-                    <OutArgument x:TypeArguments="x:Double" x:Key="out_claimAmountToPay">[claimAmountToPay]</OutArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_rejectionReasons">[rejectionReasons]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_claimDescription">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="claimDescription" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:Double" x:Key="in_claimAmountRequested">
+                      <mva:VisualBasicValue x:TypeArguments="x:Double" ExpressionText="claimAmountRequested" />
+                    </InArgument>
+                    <OutArgument x:TypeArguments="x:Double" x:Key="out_claimAmountToPay">
+                      <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="claimAmountToPay" />
+                    </OutArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_rejectionReasons">
+                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="rejectionReasons" />
+                    </OutArgument>
                   </upaf:CreateFormTask.FormData>
                 </upaf:CreateFormTask>
                 <upat:AssignTasks FailedTaskAssignments="{x:Null}" TimeoutMs="{x:Null}" DisplayName="Assign Tasks" sap:VirtualizedContainerService.HintSize="716,222" sap2010:WorkflowViewState.IdRef="AssignTasks_1" TaskAssignmentType="[TaskAssignmentType.Assign]" TaskUserAssignments="[New List(Of TaskUserAssignment) From {New TaskUserAssignment(taskObjectCreated.Id, inMailAddressHigherManagement)}]" />
